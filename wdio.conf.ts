@@ -1,3 +1,9 @@
+import dotenv from "dotenv"
+dotenv.config()
+
+let headless = process.env.HEADLESS
+console.log(`>> The headless flag: ${headless}`)
+
 import type { Options } from '@wdio/types'
 
 export const config: Options.Testrunner = {
@@ -84,11 +90,13 @@ export const config: Options.Testrunner = {
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 5,
-        "goog:chromeOptions": {
-            args: ["--disable-web-security"]
-        },
+        
         //
         browserName: 'chrome',
+        "goog:chromeOptions": {
+            args: headless.toUpperCase() === "Y" ? ["--disable-web-security", "--headless"] : []
+            // args: ["--disable-web-security", "--headless"] 
+        },
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
