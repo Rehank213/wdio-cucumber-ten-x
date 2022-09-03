@@ -5,13 +5,15 @@
     "main": "index.js",
     "scripts": {
         "demo": "npx wdio wdio.confi.ts --cucumberOpts.tagExpression='@demo'",
-        "wdio": "wdio run wdio.conf.ts --cucumberOpts.tagExpression='@demo2'",
-        "sanity": "wdio run wdio.conf.ts --cucumberOpts.tagExpression='@sanity'"
+        "wdio": "set HEADLESS=Y&& wdio run wdio.conf.ts --cucumberOpts.tagExpression='@demo2'",
+        "sanity": "set HEADLESS=Y && wdio run wdio.conf.ts --cucumberOpts.tagExpression='@sanity'"
     },
     "author": "Rehan Khan",
     "license": "ISC",
     "devDependencies": {
         "@types/chai": "^4.3.3",
+        "@typescript-eslint/eslint-plugin": "^5.36.1",
+        "@typescript-eslint/parser": "^5.36.1",
         "@wdio/allure-reporter": "^7.23.0",
         "@wdio/cli": "^7.23.0",
         "@wdio/cucumber-framework": "^7.23.0",
@@ -19,6 +21,8 @@
         "@wdio/spec-reporter": "^7.23.0",
         "chai": "^4.3.6",
         "chromedriver": "^104.0.0",
+        "dotenv": "^16.0.2",
+        "eslint": "^8.23.0",
         "ts-node": "^10.9.1",
         "typescript": "^4.8.2",
         "wdio-chromedriver-service": "^7.3.2"

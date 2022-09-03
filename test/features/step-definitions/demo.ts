@@ -7,7 +7,7 @@ Given(/^Google page is opened$/, async function () {
 // When(/^Search with (.*)$/, async function (searchItem) {
 When(/^Search with (.*)$/, async function (searchItem) {
   let elem = await $('[name="q"]');
-  await elem.setValue(searchItem);
+  await elem.setValue('searchItem');
   await browser.keys("Enter");
 });
 
@@ -47,7 +47,7 @@ When(/^Perform web interactions$/, async function () {
   
 
   let searchField = await $('input')
-  await searchField.addValue("12345")
+  await searchField.addValue(process.env.TEST_USERNAME)
   await browser.pause(5000)
 
 
